@@ -14,7 +14,6 @@ import UIKit
 
 //: ![Uno Deck](deck.jpg)
 
-
 /*:
  ### المطلوب:
 #### الجزء الأول:
@@ -40,7 +39,6 @@ var red_9 = UIImage(named: "Red_9.png")
 
 var green_Skip = UIImage(named: "Green_Skip.png")
 var wild_Draw = UIImage(named: "Wild_Draw.png")
-
 
 /*:
  
@@ -87,19 +85,33 @@ var wild_Draw = UIImage(named: "Wild_Draw.png")
 
 /// قم بإنشاء الستركت هنا
 
-// struct ...
-
-
-
+struct Card{
+    var color: String
+    var number: Int
+    func imageName()->String{
+        return "\(color)_\(number)"
+    }
+}
+var colors = ["Blue", "Green", "Red", "Yellow"]
+var cards : [Card] = []
+for color in colors{
+    cards.append(Card(color: color, number: 0))
+    for _ in 1...2{
+    for i in 1...9{
+        cards.append(Card(color: color, number: i))
+        
+    }
+}
+}
 
 
 // لا تقم بإزالة الملاحظات إلا عند وصولك للمطلوب الثالث
 
-//
-//let randomCard = cards.randomElement()!
-//let randomCardImage = UIImage(named: randomCard.imageName())
-//
-//
-//let cardImages = cards.map{UIImage(named: $0.imageName())}
-//randomCardImage
-//cardImages
+
+let randomCard = cards.randomElement()!
+let randomCardImage = UIImage(named: randomCard.imageName())
+
+
+let cardImages = cards.map{UIImage(named: $0.imageName())}
+randomCardImage
+cardImages
